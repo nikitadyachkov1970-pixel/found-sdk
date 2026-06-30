@@ -1,0 +1,42 @@
+name: Node CI
+
+on:
+  push:
+    paths:
+      - "node/**"
+      - ".github/workflows/node-ci.yml"
+  pull_request:
+    paths:
+      - "node/**"
+      - ".github/workflows/node-ci.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ["18", "20", "22"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install deps
+        working-directory: node
+        run: npm ci
+
+      - name: Typecheck
+        working-directory: node
+        run: npm run typecheck
+
+      - name: Build
+        working-directory: node
+        run: npm run build
+
+      - name: Test
+        working-directory: node
+        run: npm test

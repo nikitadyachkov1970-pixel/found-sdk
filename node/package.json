@@ -1,0 +1,54 @@
+{
+  "name": "found-sdk",
+  "version": "0.1.0",
+  "description": "Expose your business metrics to Found with a few lines — no manual snapshot endpoint.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Found",
+  "homepage": "https://found.skyvpn2.online",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikitadyachkov1970-pixel/found-sdk.git",
+    "directory": "node"
+  },
+  "keywords": [
+    "found",
+    "metrics",
+    "kpi",
+    "snapshot",
+    "business",
+    "express",
+    "fastify"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}

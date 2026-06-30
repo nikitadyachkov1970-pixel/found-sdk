@@ -1,0 +1,39 @@
+name: Node Release
+
+# Publishes found-sdk to npm when you push a tag like `js-v0.1.0`.
+# Requires the NPM_TOKEN secret (npm automation token). See node/PUBLISHING.md.
+
+on:
+  push:
+    tags:
+      - "js-v*"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # enables npm provenance
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install deps
+        working-directory: node
+        run: npm ci
+
+      - name: Build & test
+        working-directory: node
+        run: |
+          npm run build
+          npm test
+
+      - name: Publish to npm
+        working-directory: node
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
