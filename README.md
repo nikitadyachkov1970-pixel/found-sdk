@@ -8,6 +8,19 @@
 | Python            | `pip install found-sdk`       | [`python/`](python) |
 | Node / TypeScript | `npm install found-sdk`       | [`node/`](node)   |
 
+## Документация
+
+**[→ Полное руководство по Business API и интеграции](docs/BUSINESS_API.md)**
+
+Там пошагово: как работает pull-модель, формат JSON snapshot, примеры для VPN / магазина / SaaS,
+безопасность, устранение 401 и FAQ.
+
+| Документ | Содержание |
+| --- | --- |
+| [docs/BUSINESS_API.md](docs/BUSINESS_API.md) | Архитектура, пошаговая интеграция, формат ответа, примеры по нишам |
+| [python/README.md](python/README.md) | Python SDK: FastAPI, Flask, `handle()` |
+| [node/README.md](node/README.md) | Node SDK: Express, Fastify, raw http |
+
 ## Зачем
 
 Found **читает** (pull) метрики с твоего бэкенда: раз в N часов делает

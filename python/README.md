@@ -10,6 +10,8 @@ pip install found-sdk[fastapi]   # или found-sdk[flask]
 > Не на Python? Есть Node/TypeScript-версия: `npm install found-sdk`
 > (в этом репозитории — папка `node/`).
 
+**[→ Полное руководство по Business API](../docs/BUSINESS_API.md)** — архитектура, пошаговая интеграция, формат JSON, примеры по нишам, FAQ.
+
 ## Как это работает
 
 Found **читает** (pull) метрики с твоего бэкенда: раз в N часов делает

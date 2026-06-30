@@ -9,6 +9,8 @@ npm install found-sdk
 
 > Python-версия живёт в [`found-sdk`](https://pypi.org/project/found-sdk/) (`pip install found-sdk`).
 
+**[→ Полное руководство по Business API](../docs/BUSINESS_API.md)** — архитектура, пошаговая интеграция, формат JSON, примеры по нишам, FAQ.
+
 ## Как это работает
 
 Found **читает** (pull) метрики с твоего бэкенда: раз в N часов делает
